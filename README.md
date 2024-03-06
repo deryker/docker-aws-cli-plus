@@ -18,6 +18,7 @@ This image is based on debian buster slim and contains:
 - Docker cli 20.10
 - Jq 1.6
 - YTT v0.45.3 (Yaml templating tool https://github.com/vmware-tanzu/carvel-ytt)
+- Helm 3
 
 This image is intended to be used in an AWS, Kubernetes CI/CD environment.
 
@@ -37,4 +38,11 @@ Which contains all tools from the `description` and serverless.com cli
 
 Available publicly on:
 
+- TODO
+
+## Reference
+
+Thanks to Jérémy Marjollet.
+
+- https://github.com/aegirops/docker-aws-cli
 - https://hub.docker.com/r/aegirops/aws-cli
