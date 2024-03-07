@@ -36,24 +36,24 @@ jobs:
             echo "[jq] "$(docker run -it aws-cli:latest "jq"       "--version" | head -n 1)
             echo "[ytt] "$(docker run -it aws-cli:latest "ytt"      "--version" | head -n 1)
 
-  # publish-latest-docker-image:
-  #   executor: buildpack
-  #   steps:
-  #     - checkout
-  #     - setup_remote_docker
-  #     - run:
-  #         name: Build docker image and serverless flavor
-  #         command: |
-  #           docker build -f Dockerfile --target aws-cli -t "aegirops/aws-cli:latest" -t "aegirops/aws-cli:${CIRCLE_TAG}" .
-  #           docker build -f Dockerfile --target aws-cli-serverless -t "aegirops/aws-cli:latest-serverless" -t "aegirops/aws-cli:${CIRCLE_TAG}-serverless" .
-  #     - run:
-  #         name: Publish Docker Image to Docker Hub
-  #         command: |
-  #           echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-  #           docker push aegirops/aws-cli:latest
-  #           docker push aegirops/aws-cli:${CIRCLE_TAG}
-  #           docker push aegirops/aws-cli:latest-serverless
-  #           docker push aegirops/aws-cli:${CIRCLE_TAG}-serverless
+  publish-latest-docker-image:
+    executor: buildpack
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Build docker image and serverless flavor
+          command: |
+            docker build -f Dockerfile --target aws-cli -t "deryker/aws-cli-plus:latest" -t "deryker/aws-cli-plus:${CIRCLE_TAG}" .
+            docker build -f Dockerfile --target aws-cli-serverless -t "deryker/aws-cli-plus:latest-serverless" -t "deryker/aws-cli:${CIRCLE_TAG}-serverless" .
+      - run:
+          name: Publish Docker Image to Docker Hub
+          command: |
+            echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+            docker push deryker/aws-cli-plus:latest
+            docker push deryker/aws-cli-plus:${CIRCLE_TAG}
+            docker push deryker/aws-cli-plus:latest-serverless
+            docker push deryker/aws-cli-plus:${CIRCLE_TAG}-serverless
 
 workflows:
   build-test:
@@ -64,14 +64,14 @@ workflows:
               only:
                 - /.*/
 
-  # publish:
-  #   jobs:
-  #     - publish-latest-docker-image:
-  #         context: dockerAwsCli
-  #         filters:
-  #           branches:
-  #             ignore:
-  #               - /.*/
-  #           tags:
-  #             only:
-  #               - /^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/
+  publish:
+    jobs:
+      - publish-latest-docker-image:
+          context: dockerAwsCli
+          filters:
+            branches:
+              ignore:
+                - /.*/
+            tags:
+              only:
+                - /^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/
