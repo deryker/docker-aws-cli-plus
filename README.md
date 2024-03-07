@@ -38,7 +38,7 @@ Which contains all tools from the `description` and serverless.com cli
 
 Available publicly on:
 
-- TODO
+- https://hub.docker.com/r/deryker/docker-aws-cli-plus
 
 ## Reference
 
