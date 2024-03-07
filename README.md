@@ -1,6 +1,6 @@
 # docker-aws-cli
 
-[![CircleCI](https://dl.circleci.com/status-badge/img/circleci/TCMXHRSwooS96tKrJmNct2/XU5TkUcZTS9pLnh42u4w2E/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/TCMXHRSwooS96tKrJmNct2/XU5TkUcZTS9pLnh42u4w2E/tree/main)
+[![CircleCI](https://dl.circleci.com/status-badge/img/circleci/TCMXHRSwooS96tKrJmNct2/XU5TkUcZTS9pLnh42u4w2E/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/TCMXHRSwooS96tKrJmNct2/XU5TkUcZTS9pLnh42u4w2E/tree/master)
 
 ## Description
 
