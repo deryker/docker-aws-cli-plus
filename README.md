@@ -1,6 +1,6 @@
 # docker-aws-cli
 
-[![CircleCI](https://circleci.com/gh/aegirops/docker-aws-cli.svg?style=svg)](https://circleci.com/gh/aegirops/docker-aws-cli)
+[![CircleCI](https://dl.circleci.com/status-badge/img/circleci/TCMXHRSwooS96tKrJmNct2/XU5TkUcZTS9pLnh42u4w2E/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/TCMXHRSwooS96tKrJmNct2/XU5TkUcZTS9pLnh42u4w2E/tree/main)
 
 ## Description
 
@@ -20,17 +20,17 @@ This image is based on debian buster slim and contains:
 - YTT v0.45.3 (Yaml templating tool https://github.com/vmware-tanzu/carvel-ytt)
 - Helm 3
 
-This image is intended to be used in an AWS, Kubernetes CI/CD environment.
+This image is intended to be used in an AWS and Kubernetes CI/CD environment.
 
 ## Flavors
 
 This build provides two flavors:
 
-- aegirops/aws-cli:VERSION
+- deryker/aws-cli-plus:VERSION
 
 Which include all tools from the `description`
 
-- aegirops/aws-cli:VERSION-serverless
+- deryker/aws-cli-plus:VERSION-serverless
 
 Which contains all tools from the `description` and serverless.com cli
 
